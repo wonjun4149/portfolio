@@ -35,7 +35,6 @@ function openModal(modalId) {
     document.body.style.overflow = 'hidden';
     
     // Add fade-in animation
-    modal.style.opacity = '0';
     setTimeout(() => {
       modal.style.transition = 'opacity 0.3s ease';
       modal.style.opacity = '1';
@@ -75,7 +74,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Smooth scrolling for navigation links with better handling
+// Enhanced smooth scroll functionality for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -83,24 +82,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(targetId);
     
     if (target) {
-      // Temporarily disable scroll snap for smooth navigation
-      document.documentElement.style.scrollSnapType = 'none';
-      
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      
-      // Re-enable scroll snap after navigation
-      setTimeout(() => {
-        const scrollPosition = window.scrollY;
-        const aboutSkillsSection = document.getElementById('about-skills');
-        const aboutSkillsBottom = aboutSkillsSection.offsetTop + aboutSkillsSection.offsetHeight;
-        
-        if (scrollPosition < aboutSkillsBottom - window.innerHeight * 0.5) {
-          document.documentElement.style.scrollSnapType = 'y mandatory';
-        }
-      }, 1000);
     }
   });
 });
@@ -119,9 +104,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe elements for animation when page loads
 window.addEventListener('load', () => {
-  // Animate skill items with stagger (simplified)
   const skillTags = document.querySelectorAll('.skill-tag');
   skillTags.forEach((item, index) => {
     item.style.opacity = '0';
@@ -133,93 +116,62 @@ window.addEventListener('load', () => {
     }, index * 50);
   });
 
-  // Observe other elements
   document.querySelectorAll('.project-card, .experience-item, .skill-category, .about-text').forEach(el => {
     observer.observe(el);
   });
 });
 
-// Add CSS for animate-in class
-const style = document.createElement('style');
-style.textContent = `
-  .animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-document.head.appendChild(style);
+// Simplified parallax effect
+let ticking = false;
 
-// Enhanced scroll behavior - disable snap from projects section
-document.addEventListener('DOMContentLoaded', function() {
-  const aboutSkillsSection = document.getElementById('about-skills');
-  const projectsSection = document.getElementById('projects');
-  
-  function handleScroll() {
-    const scrollPosition = window.scrollY;
-    const aboutSkillsBottom = aboutSkillsSection.offsetTop + aboutSkillsSection.offsetHeight;
-    
-    // Disable scroll snap when reaching projects section
-    if (scrollPosition >= aboutSkillsBottom - window.innerHeight * 0.5) {
-      document.documentElement.style.scrollSnapType = 'none';
-    } else {
-      document.documentElement.style.scrollSnapType = 'y mandatory';
-    }
-  }
-  
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  
-  // Also disable on resize to maintain consistency
-  window.addEventListener('resize', handleScroll, { passive: true });
-});
-
-// Parallax effect for hero background
-window.addEventListener('scroll', () => {
+function updateParallax() {
   const scrolled = window.pageYOffset;
   const hero = document.querySelector('.hero');
   
   if (hero && scrolled < window.innerHeight) {
-    const rate = scrolled * -0.3;
+    const rate = scrolled * -0.1; // 더 부드러운 패럴랙스
     hero.style.transform = `translateY(${rate}px)`;
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
   }
 }, { passive: true });
 
-// Mobile menu toggle (for future enhancement)
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  navLinks.classList.toggle('mobile-active');
-}
-
-// Add loading screen fade out
+// Loading screen fade out
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Apply debounce to scroll-heavy functions
-const debouncedScrollHandler = debounce(() => {
-  // Any heavy scroll calculations can go here
-}, 10);
-
-window.addEventListener('scroll', debouncedScrollHandler, { passive: true });
+// Enhanced scroll snap - CSS로 처리하지만 추가적인 안정성을 위한 보조 코드
+let scrollTimer = null;
+window.addEventListener('scroll', () => {
+  if (scrollTimer !== null) {
+    clearTimeout(scrollTimer);
+  }
+  
+  scrollTimer = setTimeout(() => {
+    // 스크롤이 멈춘 후 현재 섹션을 확인하고 미세 조정
+    const sections = document.querySelectorAll('.hero, .about-skills, .projects');
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = scrollY + rect.top;
+      const distanceFromTop = Math.abs(scrollY - sectionTop);
+      
+      // 섹션의 30% 이내에 있으면 정확히 맞춤
+      if (distanceFromTop < windowHeight * 0.3 && distanceFromTop > 10) {
+        section.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    });
+  }, 150);
+}, { passive: true });

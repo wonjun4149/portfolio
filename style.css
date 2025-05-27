@@ -1,132 +1,4 @@
-.projects .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}/* Mobile Responsive */
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    max-height: none;
-  }
-  
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero h1 {
-    font-size: 3.5em;
-  }
-  
-  .project-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  
-  .project-tags {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 2.8em;
-  }
-  
-  .hero p {
-    font-size: 1.1em;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    max-height: none;
-  }
-  
-  .about-grid h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
-  }
-
-  .projects h2 {
-    font-size: 2.2em;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .project-card {
-    padding: 25px;
-  }
-
-  .modal-content {
-    margin: 10% auto;
-    padding: 25px;
-    width: 95%;
-  }
-  
-  .modal h3 {
-    font-size: 1.8em;
-  }
-  
-  .section {
-    padding: 60px 0 30px;
-  }
-
-  .about-text, .skill-category, .experience-item {
-    padding: 20px;
-  }
-  
-  .project-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.2em;
-  }
-  
-  .about-text, .skill-category, .experience-item {
-    padding: 15px;
-  }
-  
-  .project-card {
-    padding: 20px;
-  }
-  
-  .skill-tag {
-    font-size: 0.7em;
-    padding: 3px 6px;
-  }
-  
-  .about-grid h2 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-  }
-  
-  .info-group h4 {
-    font-size: 1em;
-  }
-  
-  .about-text p, .experience-item p {
-    font-size: 0.8em;
-  }
-}/* Reset and Base Styles */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -135,7 +7,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory; /* CSS 스크롤 스냅 활성화 */
+}
+
+/* 모바일에서는 스크롤 스냅 비활성화 */
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: none;
+  }
 }
 
 body {
@@ -144,23 +23,34 @@ body {
   color: #e4e4e7;
   overflow-x: hidden;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1350px; /* 1200px에서 1300px로 증가 */
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Section Full Height */
-.section {
-  min-height: 100vh;
+main {
+  flex-grow: 1; /* footer가 아래에 붙도록 main이 공간을 차지 */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 100px 0 60px;
+}
+
+/* Section Full Height - 검은 화면 방지를 위해 정확한 높이 설정 */
+.section {
+  height: 100vh; /* min-height 대신 정확한 height 사용 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 중앙 정렬 복구 */
+  padding: 0; /* padding 제거하여 간격 최소화 */
   scroll-snap-align: start;
   position: relative;
+  background-color: inherit; /* 배경색 상속으로 빈 공간 방지 */
 }
 
 /* Navbar with Enhanced Blur */
@@ -233,7 +123,7 @@ body {
   width: 100%;
 }
 
-/* Hero Section - Clean Background */
+/* Hero Section - With Blur Effect */
 .hero {
   height: 100vh;
   background-image: url('image.png');
@@ -248,15 +138,37 @@ body {
   align-items: center;
   position: relative;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: hidden; /* 검은 화면 방지를 위해 hidden으로 변경 */
+}
+
+/* 블러 효과 추가 */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('image.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: 1;
 }
 
 .hero::after {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* 0.4에서 0.6으로 증가하여 대비 낮춤 */
+  z-index: 2;
 }
 
 .hero-content {
-  z-index: 2;
+  z-index: 3;
   position: relative;
 }
 
@@ -285,7 +197,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9em;
   animation: bounce 2s infinite;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* About & Skills Combined Section */
@@ -294,8 +206,14 @@ body {
   color: #e4e4e7;
   position: relative;
   scroll-snap-align: start;
+  height: 100vh; /* 정확한 높이 설정 */
+  padding: 80px 0; /* 패딩 복구 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 중앙 정렬 복구 */
 }
 
+/* 배경 그래디언트 그대로 유지 */
 .about-skills::before {
   content: '';
   position: absolute;
@@ -309,31 +227,72 @@ body {
   pointer-events: none;
 }
 
+/* 4개 항목을 균등하게 배치 */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr); /* 4열로 변경 */
+  gap: 20px; /* 25px에서 20px로 줄임 */
   align-items: start;
   position: relative;
   z-index: 1;
-  max-height: calc(100vh - 280px);
+  max-height: none; /* 높이 제한 제거 */
   overflow: visible;
 }
 
+/* 제목 스타일 - 가운데 정렬로 수정 */
 .about-grid h2 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: #6b7bb8;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center; /* 가운데 정렬 추가 */
 }
 
-/* About Me Column */
+/* About Me 영역 */
+.about-column {
+  grid-column: 1 / 2;
+}
+
+.skills-column {
+  grid-column: 2 / 3;
+}
+
+/* Career 영역 */
+.career-column {
+  grid-column: 3 / 4;
+}
+
+/* Activity 영역 */
+.activity-column {
+  grid-column: 4 / 5;
+}
+
+/* Career, Activity를 별도 컬럼으로 배치 */
+.experience-column {
+  grid-column: 3 / 5; /* 3-4열 차지 */
+  display: contents; /* 자식 요소들이 그리드에 직접 참여하도록 */
+}
+
+.experience-sections-container {
+  grid-column: 3 / 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Career & Activity 각각 */
+.experience-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이하 기존 스타일 유지 */
 .about-text {
   background: rgba(15, 15, 15, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
-  padding: 25px;
+  padding: 30px; /* 25px에서 30px로 증가 */
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   display: flex;
@@ -400,7 +359,7 @@ body {
   background: rgba(15, 15, 15, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  padding: 18px;
+  padding: 22px; /* 18px에서 22px로 증가 */
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
@@ -450,18 +409,19 @@ body {
   border-radius: 4px;
 }
 
-/* Experience Column */
+/* Experience List */
 .experience-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  flex: 1;
 }
 
 .experience-item {
   background: rgba(15, 15, 15, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  padding: 18px;
+  padding: 22px; /* 18px에서 22px로 증가 */
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   position: relative;
@@ -493,21 +453,18 @@ body {
   color: #b4b4b7;
   line-height: 1.4;
   font-size: 0.85em;
-}-item p {
-  color: #b4b4b7;
-  line-height: 1.6;
-  font-size: 0.95em;
 }
 
-/* Projects Section - With snap scroll */
+/* Projects Section */
 .projects {
   background: linear-gradient(135deg, #050505 0%, #0f0f0f 50%, #080808 100%);
   position: relative;
   scroll-snap-align: start;
-  min-height: 100vh;
-  padding: 80px 0 60px;
+  min-height: calc(100vh - 100px); /* footer를 위한 공간 확보 */
+  padding: 80px 0 40px; /* 패딩 복구 */
   display: flex;
   flex-direction: column;
+  justify-content: center; /* 중앙 정렬 복구 */
 }
 
 .projects::before {
@@ -521,6 +478,14 @@ body {
     radial-gradient(circle at 30% 40%, rgba(79, 70, 229, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.02) 0%, transparent 50%);
   pointer-events: none;
+}
+
+.projects .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 20px; /* 패딩 복구 */
 }
 
 .projects h2 {
@@ -708,28 +673,16 @@ body {
   text-decoration: underline;
 }
 
-/* Footer - Always visible at bottom of projects section */
 .footer {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   color: #666;
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px 20px; /* 원래 패딩으로 복구 */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: auto;
   backdrop-filter: blur(10px);
-}
-
-/* Remove scroll snap disable rules */
-
-/* Ensure footer is always at bottom */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
+  margin-top: auto; /* 원래대로 복구 */
+  position: relative; /* absolute에서 relative로 복구 */
+  z-index: 1;
 }
 
 /* Animations */
@@ -757,27 +710,72 @@ main {
 }
 
 /* Mobile Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    height: auto;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 그리드 */
+    gap: 20px; /* gap 조정 */
+    max-height: none;
   }
   
-  .about-text, .skills-group, .experience-list {
-    height: auto;
+  .about-column {
+    grid-column: 1 / 2;
+  }
+
+  .skills-column {
+    grid-column: 2 / 3;
+  }
+
+  .career-column {
+    grid-column: 1 / 2;
+  }
+
+  .activity-column {
+    grid-column: 2 / 3;
   }
   
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* 모바일에서는 1열 */
+    gap: 20px; /* gap 조정 */
+    max-height: none;
+  }
+  
+  .about-column, .skills-column, .career-column, .activity-column {
+    grid-column: 1 / 2;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
   
   .hero h1 {
     font-size: 3.5em;
   }
+  
+  .project-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .project-tags {
+    margin-right: 0;
+  }
 }
 
+/* 모바일에서는 스크롤 스냅 비활성화 */
 @media (max-width: 768px) {
+  html {
+    scroll-snap-type: none;
+  }
+
   .navbar {
     padding: 15px 20px;
   }
@@ -794,14 +792,22 @@ main {
     font-size: 1.1em;
   }
 
+  /* 모바일에서 섹션 높이 조정 */
+  .section, .about-skills, .projects {
+    min-height: 100vh; /* min-height로 변경하여 콘텐츠에 따라 조정 */
+    height: auto;
+    padding: 60px 0 30px; /* 패딩 복구 */
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
-    height: auto;
+    gap: 20px; /* gap 조정 */
+    height: auto; /* 높이 자동 조정 */
   }
   
   .about-grid h2 {
     font-size: 2em;
+    margin-bottom: 30px;
   }
 
   .projects h2 {
@@ -826,13 +832,15 @@ main {
   .modal h3 {
     font-size: 1.8em;
   }
-  
-  .section {
-    padding: 80px 0 40px;
-  }
 
   .about-text, .skill-category, .experience-item {
-    padding: 20px;
+    padding: 22px; /* 20px에서 22px로 증가 */
+  }
+  
+  .project-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
 }
 
@@ -842,7 +850,7 @@ main {
   }
   
   .about-text, .skill-category, .experience-item {
-    padding: 15px;
+    padding: 18px; /* 15px에서 18px로 증가 */
   }
   
   .project-card {
@@ -851,6 +859,19 @@ main {
   
   .skill-tag {
     font-size: 0.7em;
-    padding: 3px 8px;
+    padding: 3px 6px;
+  }
+  
+  .about-grid h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  
+  .info-group h4 {
+    font-size: 1em;
+  }
+  
+  .about-text p, .experience-item p {
+    font-size: 0.8em;
   }
 }
