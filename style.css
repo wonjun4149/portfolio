@@ -1,0 +1,376 @@
+/* 기본 설정 */
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar.transparent {
+  background-color: transparent;
+  color: white;
+}
+.navbar.transparent a {
+  color: white;
+}
+.navbar.solid {
+  background-color: #252526;
+  border-bottom: 1px solid #333;
+  color: #d4d4d4;
+}
+.navbar.solid a {
+  color: #d4d4d4;
+}
+
+.nav-logo {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li {
+  display: inline-block;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #9cdcfe;
+}
+
+/* Hero */
+.hero {
+  height: 500px;
+  background: url('image.png') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+}
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+.hero p {
+  font-size: 1.4em;
+  margin-bottom: 0px;
+}
+
+/* Section */
+.section {
+  padding: 40px 20px 80px;
+  text-align: center;
+}
+.section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+.section.white { background-color: #2d2d2d; }
+.section.yellow { background-color: #0f202b; }
+.section.dark { background-color: #1e1e1e; }
+.section.gray { background-color: #333; }
+.section.light-gray { background-color: #4d4d4d;}
+
+/* 카드 레이아웃 */
+.about-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.card {
+  background-color: #252526;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  height: 30px;
+}
+
+/* 링크 스타일 */
+.card a {
+  color: #9cdcfe;
+  text-decoration: none;
+}
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* hover 카드 확장 */
+.hover-card {
+  height: 60px;
+  transition: height 0.3s ease;
+  position: relative;
+  background-color: #252526;
+  border-radius: 12px;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.hover-card:hover {
+  height: 100px;
+}
+
+/* 공통 콘텐츠 박스 */
+.card-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+  width: 100%;
+  padding-left: 30px;
+}
+
+/* 기본 내용 보이기 */
+.card-content.front {
+  opacity: 1;
+}
+
+/* 확장 내용 숨기기 */
+.card-content.back {
+  opacity: 0;
+}
+
+/* hover 시 전환 */
+.hover-card:hover .front {
+  opacity: 0;
+}
+
+.hover-card:hover .back {
+  opacity: 1;
+}
+
+
+/* Skills */
+.skills-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.group {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+.group h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #dcdcaa;
+  border-bottom: 1px dashed #3c3c3c;
+  padding-bottom: 5px;
+}
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.tag {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.tag.html    { background-color: #e34c26; }
+.tag.css     { background-color: #2965f1; }
+.tag.php     { background-color: #8892be; }
+.tag.java    { background-color: #cc3e44; }
+.tag.python  { background-color: #3572A5; }
+.tag.mysql   { background-color: #00618a; }
+.tag.c       { background-color: #555; }
+.tag.cpp     { background-color: #004482; }
+
+/* Projects */
+.project {
+  background-color: #2a2a2a;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project h3 {
+  font-size: 1.3em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.project-desc {
+  font-size: 0.95em;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.project-info div {
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: #bbbbbb;
+  line-height: 1.5;
+}
+.project-info span {
+  color: #bbbbbb;
+  font-weight: 500;
+  margin-right: 5px;
+}
+.project-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: bold;
+}
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Experience */
+#experience ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.experience-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-align: left;
+}
+.experience-card h3 {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+.experience-card h3 span {
+  font-weight: normal;
+  color: #888;
+  font-size: 0.9em;
+}
+.experience-card p {
+  font-size: 0.95em;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+#activity ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+.activity-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.activity-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-align: left;
+}
+.activity-card h3 {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+.activity-card h3 span {
+  font-weight: normal;
+  color: #888;
+  font-size: 0.9em;
+}
+.activity-card p {
+  font-size: 0.95em;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ✅ 모바일 대응 */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    background: #252526;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    display: none; /* toggle 필요 시 script 추가 가능 */
+  }
+
+  .about-card-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .skills-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project,
+  .experience-container {
+    width: 90%;
+  }
+}

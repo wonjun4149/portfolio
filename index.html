@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>이원준 포트폴리오</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar transparent">
+    <a href="#hero" class="nav-logo">WonJun's Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#about-me">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero" class="hero">
+    <h1>안녕하세요!</h1>
+    <p>더 좋은 개발자가 되기 위해 항상 노력하는</p>
+    <p>개발자 이원준입니다.</p>
+  </section>
+
+  <section id="about-me" class="section white">
+    <h2>이원준</h2>
+    <div class="about-card-grid">
+
+      <!-- 생일 카드 -->
+      <div class="card hover-card">
+        <div class="card-content front">🎂 2001.10.21</div>
+        <div class="card-content back">🎂 2001년 10월 21일<br>ㅤㅤ<span id="age">만 --세</span>
+        </div>
+      </div>
+
+
+      <!-- 학교 카드 -->
+      <div class="card hover-card">
+        <div class="card-content front">🏫 순천향대학교</div>
+        <div class="card-content back">
+          🏫 순천향대학교 정보통신공학과<br>
+          ㅤㅤ2020년 03월 ~ 2026년 02월
+        </div>
+      </div>
+
+      <!-- 학점 카드 -->
+      <div class="card hover-card">
+        
+        <div class="card-content front">🎓 3.92 / 4.5</div>
+        <div class="card-content back">
+          🎓 전체 3.92 / 4.5<br>ㅤㅤ전공 4.03 / 4.5
+        </div>
+      </div>
+
+      <!-- 아래 3개는 기존 스타일 유지 -->
+      <div class="card">✉️ <span>wonjun4149@gmail.com</span></div>
+      <div class="card">📞 <span>+82 10-4871-0819</span></div>
+      <div class="card">🔒 <span><a href="https://github.com/wonjun4149" target="_blank">github.com/wonjun4149</a></span></div>
+    </div>
+  </section>
+
+  <section id="skills" class="section yellow">
+    <h2>🛠 SKILLS</h2>
+    <div class="skills-group">
+      <div class="group">
+        <h3>Frontend</h3>
+        <div class="skills-tags">
+          <span class="tag html">HTML</span>
+          <span class="tag css">CSS</span>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Backend</h3>
+        <div class="skills-tags">
+          <span class="tag php">PHP</span>
+          <span class="tag java">Java</span>
+          <span class="tag python">Python</span>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Database</h3>
+        <div class="skills-tags">
+          <span class="tag mysql">MySQL</span>
+        </div>
+      </div>
+      <div class="group">
+        <h3>System / Language</h3>
+        <div class="skills-tags">
+          <span class="tag c">C</span>
+          <span class="tag cpp">C++</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section dark">
+    <h2>📂 PROJECTS</h2>
+    <div class="project">
+  <h3>웹툰 요약 및 추천 서비스</h3>
+  <p class="project-desc">
+    OCR과 Chat-GPT API를 활용해 사용자가 원하는 웹툰 회차를 요약하고, 입력한 선호 스타일을 기반으로 유사한 웹툰을 추천하는 서비스입니다.
+  </p>
+  <div class="project-info">
+    <div><span>주요 기능:</span> 웹툰 OCR, 요약, 추천 / 실시간 회차 텍스트 처리</div>
+    <div><span>기술 스택:</span> Python, HTML, PHP, MySQL, Chat-GPT API</div>
+    <div><span>역할:</span> 데이터베이스 설계 및 웹 서비스 구현</div>
+  </div>
+  <a class="project-link" href="https://github.com/wonjun4149/Bigdata_Analysis_Project" target="_blank">
+    🔗 GitHub 저장소
+  </a>
+</div>
+
+  <div class="project">
+    <h3>이력서 및 자기소개서를 기반으로한 모의면접 서비스</h3>
+  <p class="project-desc">
+    자신의 이력서와 자기소개서를 업로드 하면, Chat-GPT API를 활용해 적절한 질문을 선정한 후 해당 질문에 대한 사용자의 답변을 평가 후 피드백 해주는 서비스입니다.
+  </p>
+  <div class="project-info">
+    <div><span>주요 기능:</span> 맞춤형 질문 선정, 답변 평가, 피드백, 심화질문</div>
+    <div><span>기술 스택:</span> Python, Chat-GPT API, Gradio</div>
+    <div><span>역할:</span> 답변 평가, 피드백, 심화질문 요청</div>
+  </div>
+  <a class="project-link" href="https://github.com/wonjun4149/Bigdata_Analysis_Project" target="_blank">
+    🔗 GitHub 저장소
+  </a>
+    </div>
+  </section>
+
+  <section id="Activity" class="section light-gray">
+  <h2>🎒 Activity</h2>
+  <div class="activity-container">
+    <div class="activity-card">
+      <h3>KT AIVLE School <span>(2025.03 - 2025.09)</span></h3>
+      <p>수강생 - AI 부트캠프 수료</p>
+    </div>
+    <div class="activity-card">
+      <h3>순천향대학교 ISSI 연구실 <span>(2024.09 - 2026.02)</span></h3>
+      <p>상주연구원</p>
+    </div>
+  </div>
+  </section>
+
+  <section id="experience" class="section gray">
+  <h2>💼 EXPERIENCE</h2>
+  <div class="experience-container">
+    <div class="experience-card">
+      <h3>TEAMEX Crop. <span>(2022.06 - 2022.08)</span></h3>
+      <p>인턴 - SK Signet 미국 협력사에서 전기차 충전기 테크니션(PCB, HMI 등) 연수</p>
+    </div>
+  </div>
+  </section>
+
+
+  <footer class="footer">
+    <p>© 2025 이원준. All rights reserved.</p>
+  </footer>
+
+    <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.remove('transparent');
+        navbar.classList.add('solid');
+      } else {
+        navbar.classList.add('transparent');
+        navbar.classList.remove('solid');
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const birthDate = new Date(2001, 9, 21);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      document.getElementById("age").innerText = "만 " + age + "세";
+    });
+  </script>
+
+</body>
+</html>
