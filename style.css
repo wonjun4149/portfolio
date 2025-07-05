@@ -14,13 +14,9 @@ body {
   color: #e4e4e7;
   overflow-x: hidden;
   line-height: 1.6;
-  height: 100vh;
-  overflow-y: hidden;
 }
 
 main {
-  height: 100vh;
-  overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
 
@@ -746,6 +742,9 @@ main {
 
   .navbar {
     padding: 15px 20px;
+    position: absolute;
+  }
+    position: absolute;
   }
   
   .nav-links {

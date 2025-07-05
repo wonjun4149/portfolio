@@ -150,6 +150,10 @@ window.addEventListener('load', () => {
 // Enhanced scroll snap - CSS로 처리하지만 추가적인 안정성을 위한 보조 코드
 let scrollTimer = null;
 window.addEventListener('scroll', () => {
+  if (window.innerWidth <= 768) {
+    return;
+  }
+
   if (scrollTimer !== null) {
     clearTimeout(scrollTimer);
   }
