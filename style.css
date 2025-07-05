@@ -24,6 +24,12 @@ main {
   scroll-snap-type: y mandatory;
 }
 
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
 .section {
   min-height: 100vh;
   display: flex;
