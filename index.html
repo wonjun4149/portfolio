@@ -3,7 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- SEO 메타 태그 -->
   <title>이원준 포트폴리오</title>
+  <meta name="description" content="순천향대학교 정보통신공학과 이원준의 포트폴리오. 웹툰 추천 시스템, AI 모의면접 서비스 등 다양한 프로젝트를 통해 성장하는 풀스택 개발자입니다.">
+  <meta name="keywords" content="이원준, 포트폴리오, 개발자, 풀스택, AI, 웹개발, Python, Java, JavaScript, 순천향대학교, 프로젝트">
+  <meta name="author" content="이원준">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wonjun.info">
+  
+  <!-- Open Graph 태그 (소셜 미디어 공유용) -->
+  <meta property="og:title" content="이원준 포트폴리오 | 풀스택 개발자">
+  <meta property="og:description" content="순천향대학교 정보통신공학과 이원준의 포트폴리오. 웹툰 추천 시스템, AI 모의면접 서비스 등 다양한 프로젝트를 소개합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wonjun.info">
+  <meta property="og:image" content="https://wonjun.info/og-image.jpg">
+  <meta property="og:site_name" content="이원준 포트폴리오">
+  
+  <!-- Twitter Card 태그 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="이원준 포트폴리오 | 풀스택 개발자">
+  <meta name="twitter:description" content="순천향대학교 정보통신공학과 이원준의 포트폴리오">
+  <meta name="twitter:image" content="https://wonjun.info/og-image.jpg">
+  
+  <!-- 구조화된 데이터 (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "이원준",
+    "jobTitle": "풀스택 개발자",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "순천향대학교"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "순천향대학교 정보통신공학과"
+    },
+    "email": "wonjun4149@gmail.com",
+    "telephone": "+82-10-4871-0819",
+    "url": "https://wonjun.info",
+    "sameAs": [
+      "https://github.com/wonjun4149"
+    ],
+    "knowsAbout": [
+      "Python", "JavaScript", "Java", "HTML", "CSS", "MySQL", "AI", "Machine Learning"
+    ]
+  }
+  </script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -97,6 +146,10 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="skill-logo">
             Kotlin
           </span>
+          <span class="skill-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" class="skill-logo">
+            Spring
+          </span>
         </div>
       </div>
       <div class="skill-category">
@@ -138,7 +191,7 @@
     <div class="experience-list">
       <div class="experience-item">
         <h4>TEAMEX Corp.</h4>
-        <span class="period">2022.06 - 2022.08</span>
+        <span class="period">2022.06 - 2022.08 / Fairfield, NJ, USA</span>
         <p>인턴 - SK Signet 미국 협력사<br>전기차 충전기 테크니션(PCB, HMI 등) 연수<br>하드웨어 시스템 이해 및 실무 경험 습득</p>
       </div>
     </div>
@@ -180,7 +233,10 @@
                 <span class="project-tag">OCR</span>
                 <span class="project-tag">CUDA</span>
                 <span class="project-tag">Web Crawling</span>
-                <span class="project-tag">Ubuntu</span>
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" class="skill-logo">
+                  Ubuntu
+                </span>
                 <span class="project-tag">
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo">
                   MySQL
@@ -223,8 +279,35 @@
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-logo">
                   JavaScript
                 </span>
-                <span class="project-tag">Ubuntu</span>
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" class="skill-logo">
+                  Ubuntu
+                </span>
                 <span class="project-tag">Apache</span>
+              </div>
+              <button class="view-details">자세히 보기</button>
+            </div>
+          </div>
+
+          <!-- 새로 추가된 Modal4를 위한 프로젝트 카드 -->
+          <div class="project-card" onclick="openModal('modal4')">
+            <h3>AI 북커버 생성 사이트</h3>
+            <p class="project-summary">대중소설 및 본인의 창작소설을 업로드시 소설 내용에 알맞는 북커버를 생성해주는 사이트입니다.</p>
+            <div class="project-bottom">
+              <div class="project-tags">
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-logo">
+                  CSS
+                </span>
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-logo">
+                  JavaScript
+                </span>
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="skill-logo">
+                  Java
+                </span>
+                <span class="project-tag">ChatGPT API</span>
               </div>
               <button class="view-details">자세히 보기</button>
             </div>
@@ -357,15 +440,51 @@
 
         <div class="modal-section">
           <h4>링크</h4>
-          <p><a href="#" target="_blank">GitHub 저장소 바로가기</a></p>
+          <p><a href="https://github.com/wonjun4149/portfolio" target="_blank">GitHub 저장소 바로가기</a></p>
         </div>
       </div>
     </div>
-  </main>
 
-<footer class="footer">
-  <p>© 2025 이원준. All rights reserved.</p>
-</footer>
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h3>AI 북커버 생성 사이트</h3>
+        
+        <div class="modal-section">
+          <h4>프로젝트 개요</h4>
+          <p>대중소설 및 본인의 창작소설을 업로드시 소설 내용에 알맞는 북커버를 생성해주는 사이트입니다.</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>주요 기능</h4>
+          <p>• 창작 또는 대중소설 업로드 및 편집<br>
+          • AI를 활용하여 소설 내용에 따른 북커버 생성</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>기술 스택</h4>
+          <p>• Frontend: CSS3, JavaScript<br>
+          • Backend: Java<br>
+          • AI: ChatGPT API<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>담당 역할</h4>
+          <p>• 사이트 구조 설계 및 UI설계<br>
+          • 소설 업로드 및 편집 기능 제공</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>링크</h4>
+          <p><a href="https://github.com/kimju-hee/MiniProject4" target="_blank">GitHub 저장소 바로가기</a></p>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>© 2025 이원준. All rights reserved.</p>
+    </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>

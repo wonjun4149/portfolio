@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://wonjun.info/sitemap.xml
+
+# 크롤링 속도 조절 (선택사항)
+Crawl-delay: 1
