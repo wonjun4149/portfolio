@@ -17,7 +17,7 @@ body {
 }
 
 main {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity; /* mandatory에서 proximity로 변경하여 더 자연스럽게 */
 }
 
 .container {
@@ -32,7 +32,8 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: 0;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* start에서 center로 변경하여 더 자연스럽게 */
+  scroll-snap-stop: normal; /* 더 자연스러운 스크롤을 위해 추가 */
   position: relative;
   background-color: inherit;
 }
@@ -48,6 +49,7 @@ main {
   right: 0;
   z-index: 999;
   transition: all 0.3s ease;
+  height: 70px; /* 명시적 높이 설정 */
 }
 
 .navbar.transparent {
@@ -119,7 +121,8 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
   overflow: hidden;
 }
 
@@ -185,7 +188,8 @@ main {
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0a0a0a 100%);
   color: #e4e4e7;
   position: relative;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
   min-height: 100vh;
   padding: 80px 0;
   display: flex;
@@ -427,8 +431,9 @@ main {
 .projects {
   background: linear-gradient(135deg, #050505 0%, #0f0f0f 50%, #080808 100%);
   position: relative;
-  scroll-snap-align: start;
-  min-height: calc(100vh - 100px);
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
+  min-height: 100vh;
   padding: 80px 0 40px;
   display: flex;
   flex-direction: column;
@@ -640,6 +645,7 @@ main {
   text-decoration: underline;
 }
 
+/* Footer는 scroll-snap에서 제외하고 main 밖에 위치 */
 .footer {
   background: rgba(0, 0, 0, 0.6);
   color: #666;
@@ -650,6 +656,7 @@ main {
   margin-top: auto;
   position: relative;
   z-index: 1;
+  /* scroll-snap-align 없음 - 자연스러운 스크롤 */
 }
 
 @keyframes fadeInUp {
@@ -740,11 +747,13 @@ main {
     scroll-snap-type: none;
   }
 
+  main {
+    scroll-snap-type: none; /* 모바일에서는 scroll-snap 비활성화 */
+  }
+
   .navbar {
     padding: 15px 20px;
-    position: absolute;
-  }
-    position: absolute;
+    height: 60px; /* 모바일에서 navbar 높이 조정 */
   }
   
   .nav-links {
@@ -760,9 +769,10 @@ main {
   }
 
   .section, .about-skills, .projects {
-    min-height: 100vh;
+    min-height: auto; /* 모바일에서는 자동 높이 */
     height: auto;
-    padding: 60px 0 30px;
+    padding: 80px 0 30px; /* 모바일에서 상단 패딩 증가 */
+    scroll-snap-align: none; /* 모바일에서는 snap 제거 */
   }
 
   .about-grid {
