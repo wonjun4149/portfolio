@@ -70,7 +70,7 @@
     <section id="hero" class="hero">
       <div class="hero-content">
         <h1>안녕하세요!</h1>
-        <p>더 좋은 개발자가 되기 위해 항상 노력하는</p>
+        <p>더 편한 인공지능 개발을 꿈꾸는</p>
         <p>개발자 이원준입니다.</p>
       </div>
       <div class="scroll-indicator">
@@ -106,7 +106,6 @@
     </div>
   </div>
 
-  <!-- 스킬 -->
   <div class="skills-column">
     <h2>개발 스킬</h2>
     <div class="skills-group">
@@ -234,7 +233,7 @@
       <div class="experience-item">
         <h4>순천향대학교 ISSI 연구실</h4>
         <span class="period">2024.09 - 2026.02</span>
-        <p>상주연구원</p>
+        <p>학부연구원</p>
       </div>
     </div>
   </div>
@@ -272,6 +271,40 @@
           </div>
 
           <div class="project-card" onclick="openModal('modal2')">
+            <h3>약관 초안 생성 및 리스크 탐지 서비스</h3>
+            <p class="project-summary">약관 초안을 생성해주고, 작성중인 약관을 기업 입장에서 리스크가 있는지 탐지해주는 B2B 서비스입니다.</p>
+            <div class="project-bottom">
+              <div class="project-tags">
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-logo">
+                  Python
+                </span>
+                <span class="project-tag">RAG</span>
+                <span class="project-tag">AI</span>
+                <span class="project-tag">React</span>
+              </div>
+              <button class="view-details">자세히 보기</button>
+            </div>
+          </div>
+
+          <div class="project-card" onclick="openModal('modal3')">
+            <h3>MOIT</h3>
+            <p class="project-summary">취미를 추천해주고, 모임을 개최하거나 모임을 찾아주는 취미 모임 플랫폼입니다.</p>
+            <div class="project-bottom">
+              <div class="project-tags">
+                <span class="project-tag">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-logo">
+                  Python
+                </span>
+                <span class="project-tag">RAG</span>
+                <span class="project-tag">AI</span>
+                <span class="project-tag">React</span>
+              </div>
+              <button class="view-details">자세히 보기</button>
+            </div>
+          </div>
+
+          <div class="project-card" onclick="openModal('modal4')">
             <h3>AI 모의면접 서비스</h3>
             <p class="project-summary">이력서와 자기소개서를 분석하여 개인 맞춤형 면접 질문을 생성하고, 실시간 피드백을 제공하는 AI 모의면접 시스템입니다.</p>
             <div class="project-bottom">
@@ -287,9 +320,9 @@
             </div>
           </div>
 
-          <div class="project-card" onclick="openModal('modal3')">
+          <div class="project-card" onclick="openModal('modal5')">
             <h3>개인 포트폴리오 웹사이트</h3>
-            <p class="project-summary">개인 브랜딩을 위한 반응형 포트폴리오 웹사이트.</p>
+            <p class="project-summary">개인 브랜딩을 위한 반응형 포트폴리오 웹사이트입니다.</p>
             <div class="project-bottom">
               <div class="project-tags">
                 <span class="project-tag">
@@ -315,7 +348,7 @@
           </div>
 
           <!-- 새로 추가된 Modal4를 위한 프로젝트 카드 -->
-          <div class="project-card" onclick="openModal('modal4')">
+          <div class="project-card" onclick="openModal('modal6')">
             <h3>AI 북커버 생성 사이트</h3>
             <p class="project-summary">대중소설 및 본인의 창작소설을 업로드시 소설 내용에 알맞는 북커버를 생성해주는 사이트입니다.</p>
             <div class="project-bottom">
@@ -395,8 +428,92 @@
       </div>
     </div>
 
-    <!-- Modal 2 -->
     <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h3>약관 초안 생성 및 리스크 탐지 서비스</h3>
+        
+        <div class="modal-section">
+          <h4>프로젝트 개요</h4>
+          <p>약관 초안을 생성해주고, 작성중인 약관을 기업 입장에서 리스크가 있는지 탐지해주는 B2B 서비스입니다.</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>주요 기능</h4>
+          <p>• 현행 유통 중인 약관을 학습하여, 간단한 상품 내요 입력 시 약관 초안 생성<br>
+          • 과거 판례를 학습하여, 작성 중인 약관 업로드 시 기업 입장에서의 리스크 탐지<br>
+          • 약관 조항 수정 시 함께 영향을 받는 조항들을 시각화<br>
+          • 약관 업로드 및 수정시 약관 버전 관리<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>기술 스택</h4>
+          <p>• Backend: Python, Firebase<br>
+          • Frontend: React<br>
+          • Database: Firebase<br>
+          • Vector DB: ChromaDB<br>
+          • AI: Gemini API<br>
+          • Cloud: GCP<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>담당 역할</h4>
+          <p>• 팀장<br>
+          • 약관 초안 생성 기능<br>
+          • 프론트엔드<br>
+          • 백엔드<br>
+          • 배포 및 최적화<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>링크</h4>
+          <p><a href="https://github.com/wonjun4149/AIVLE_BIG_PROJECT" target="_blank">GitHub 저장소 바로가기</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h3>MOIT</h3>
+        
+        <div class="modal-section">
+          <h4>프로젝트 개요</h4>
+          <p>취미를 추천해주고, 모임을 개최하거나 모임을 찾아주는 취미 모임 플랫폼입니다.</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>주요 기능</h4>
+          <p>• 나이, 성별, 투자 가능한 시간 등 간단한 설문을 통한 AI 취미 추천<br>
+          • 취미 관련 모임 생성 시, AI를 통해 이미 존재하는 비슷한 모임이 있는지 확인 후 해당 모임 추천<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>기술 스택</h4>
+          <p>• Backend: Python<br>
+          • Frontend: React<br>
+          • Database: MySQL<br>
+          • Vextor DB: Pinecone
+          • OS: Ubuntu<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>담당 역할</h4>
+          <p>• 배포 및 최적화<br>
+          • 프론트엔드<br>
+          • 백엔드<br>
+          • 모임 추천 AI API 연동<br>
+        </div>
+
+        <div class="modal-section">
+          <h4>링크</h4>
+          <p><a href="https://github.com/wonjun4149/MOIT" target="_blank">GitHub 저장소 바로가기</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal4" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <h3>AI 모의면접 서비스</h3>
@@ -437,7 +554,7 @@
       </div>
     </div>
     <!-- Modal 3 -->
-    <div id="modal3" class="modal">
+    <div id="modal5" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <h3>개인 포트폴리오 웹사이트</h3>
@@ -475,7 +592,7 @@
     </div>
 
     <!-- Modal 4 -->
-    <div id="modal4" class="modal">
+    <div id="modal6" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         <h3>AI 북커버 생성 사이트</h3>

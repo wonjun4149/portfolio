@@ -17,7 +17,7 @@ body {
 }
 
 main {
-  scroll-snap-type: y proximity; /* mandatory에서 proximity로 변경하여 더 자연스럽게 */
+  position: relative;
 }
 
 .container {
@@ -32,8 +32,6 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: 0;
-  scroll-snap-align: center; /* start에서 center로 변경하여 더 자연스럽게 */
-  scroll-snap-stop: normal; /* 더 자연스러운 스크롤을 위해 추가 */
   position: relative;
   background-color: inherit;
 }
@@ -121,8 +119,6 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
   overflow: hidden;
 }
 
@@ -188,8 +184,6 @@ main {
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0a0a0a 100%);
   color: #e4e4e7;
   position: relative;
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
   min-height: 100vh;
   padding: 80px 0;
   display: flex;
@@ -431,8 +425,6 @@ main {
 .projects {
   background: linear-gradient(135deg, #050505 0%, #0f0f0f 50%, #080808 100%);
   position: relative;
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
   min-height: 100vh;
   padding: 80px 0 40px;
   display: flex;
@@ -645,7 +637,7 @@ main {
   text-decoration: underline;
 }
 
-/* Footer는 scroll-snap에서 제외하고 main 밖에 위치 */
+/* Footer */
 .footer {
   background: rgba(0, 0, 0, 0.6);
   color: #666;
@@ -656,7 +648,6 @@ main {
   margin-top: auto;
   position: relative;
   z-index: 1;
-  /* scroll-snap-align 없음 - 자연스러운 스크롤 */
 }
 
 @keyframes fadeInUp {
@@ -743,14 +734,6 @@ main {
 }
 
 @media (max-width: 768px) {
-  html {
-    scroll-snap-type: none;
-  }
-
-  main {
-    scroll-snap-type: none; /* 모바일에서는 scroll-snap 비활성화 */
-  }
-
   .navbar {
     padding: 15px 20px;
     height: 60px; /* 모바일에서 navbar 높이 조정 */
@@ -772,7 +755,6 @@ main {
     min-height: auto; /* 모바일에서는 자동 높이 */
     height: auto;
     padding: 80px 0 30px; /* 모바일에서 상단 패딩 증가 */
-    scroll-snap-align: none; /* 모바일에서는 snap 제거 */
   }
 
   .about-grid {
